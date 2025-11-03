@@ -30,7 +30,7 @@ jobs:
         sudo apt-get update 
         sudo apt-get install build-essential g++-multilib -y
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build server plugin
       run: |
         cargo build --package server --release
@@ -55,7 +55,7 @@ jobs:
         toolchain: 1.64.0-i686
         override: true
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build server plugin
       run: |
         cargo build --package server --release
@@ -86,7 +86,7 @@ jobs:
         toolchain: 1.64.0-i686
         override: true
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build server plugin
       run: |
         cargo build --package server --release
@@ -108,14 +108,14 @@ jobs:
 
     - name: DirectX SDK cache
       id: dx-cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ env.DX_SDK_DIR }}
         key: directx
 
     - name: CEF static library cache
       id: cef-cache
-      uses: actions/cache@v2
+      uses: actions/cache@v3
       with:
         path: ${{ env.CEF_PATH }}
         key: libcef
@@ -143,7 +143,7 @@ jobs:
         toolchain: 1.64.0-i686
         override: true
 
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Build client
       run: cargo build --release
       shell: bash
